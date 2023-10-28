@@ -16,7 +16,7 @@ Will Burns, the managing director of the second company, EDC, has agreed to purc
 
 The following specification is based on the dialogue in the case study, included in the documents folder, and two bill of materials (BOM) provided by the assignment brief for software and hardware, also included. We had to pick materials from these two BOMs. There are some oddities, for example "INTSND" appears to be a made-up term. Based on context ("mono snd" or "3ch snd" options) we can deduce that it is for sound. We assume this stands for something like "internal sound", although it is not defined anywhere.
 
-In the specifications for the Syn Vectra, the items are written as they appear in the BOMs. Some text in the BOMs, such as the varied shorthand writing, is written esoterically and near unreadable for presumably no other reason than to make it difficult to complete this component of the course. If something is unclear or misinterpreted, please keep this in mind.
+In the specifications for the Synputer, the items are written as they appear in the BOMs. Some text in the BOMs, such as the varied shorthand writing, is written esoterically and near unreadable for presumably no other reason than to make it difficult to complete this component of the course. If something is unclear or misinterpreted, please keep this in mind.
 
 According to the case study, a complete system consists of the following components:
 - 1 or more ROMs (according to a different part of the case study, the board can only support 2)
@@ -26,7 +26,7 @@ According to the case study, a complete system consists of the following compone
 - interface (I/O) chips for serial, keyboard, video output, keyboard, screen, storage drive(s), and a case per design
 
 
-## SYN VECTRA SPECIFICATION
+## SYNPUTER SPECIFICATION
 COST PRICE (EDC at-cost order): £250
 SALE PRICE: £????
 
