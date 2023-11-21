@@ -59,7 +59,7 @@ According to the case study, a complete system consists of the following compone
 This spec is based on the requirements outlined via EDC in their reply to Synful Computing after the initial project review. The specification is based on the BOMs provided in the assignment brief, and the dialogue in the case study.
 
 ### Hardware
-| Component | Specification | Unit Cost (£/per 1000) | Quantity | Design Cost (wks) | Manufacture Cost (£/per 1000) | Redesign Cost (wks) |
+| Component | Specification | Unit Cost (£/per 1000) | Quantity (per unit) | Design Cost (wks) | Manufacture Cost (£/per 1000) | Redesign Cost (wks) |
 | --- | --- | --- | --- | --- | --- | --- |
 | CPU EP7500FE | 50MHz, 4KB cache, int VIDC and IOMD | £15 | 1 | - | - | 4wks |
 | ULA GX | glue special, interface XVX and CPU | £5 | 1 | - | - | 3wks |
