@@ -1,6 +1,5 @@
 # Synputer Cost Estimator
 
-
 ## Project Overview
 This is a piece of software built as part of "Assignment 2 - Presentation" for the Software Engineering Project Management course at the University of Essex Online by Group 1, consisting of:
 - Nassar Al-Naimi
@@ -59,7 +58,6 @@ According to the case study, a complete system consists of the following compone
 ## Synputer Specification
 This spec is based on the requirements outlined via EDC in their reply to Synful Computing after the initial project review. The specification is based on the BOMs provided in the assignment brief, and the dialogue in the case study.
 
-
 ### Hardware
 | Component | Specification | Unit Cost (£/per 1000) | Quantity | Design Cost (wks) | Manufacture Cost (£/per 1000) | Redesign Cost (wks) |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -77,8 +75,6 @@ Missing:
 - IOP-S (serial) x2
 - IOP-X (SCSI)
 - INTSND (sound)
-
-
 
 ### Software
 | Company | Component | Producer | Code Size | Unit Cost (£/per unit) | Design Cost (wks) | Redesign Cost (wks) | Stored On |
