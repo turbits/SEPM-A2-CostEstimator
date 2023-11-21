@@ -73,24 +73,24 @@ This spec is based on the requirements outlined via EDC in their reply to Synful
 Missing:
 - BOARD
 - DISPLAY
-- ROM
-- IOP-S (serial)
+- ROM: sys:bootloader 8k, sys:kernel 8k, sys:libs 8k, sys:drivers 4k, bas:kernel 8k, bas:corelib 8k
+- IOP-S (serial) x2
 - IOP-X (SCSI)
 - INTSND (sound)
 
 
 
 ### Software
-| Company | Component | Producer | Code Size | Unit Cost (£/per unit) | Design Cost (wks) | Redesign Cost (wks) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Synful | Boot ldr & HWcfg | In House | 6k | - | 2wks | 2wks |
-| Synful | Sys: Kernel | In House/ HB/OS | 8k | - | 8wks | 6wks |
-| Synful | SYS: Libraries | In House/ HB/OS | 8k | - | - | 4wks |
-| Synful | SYS: Drivers | In House/ HB/OS | 4k | - | - | 2wks |
-| Synful | SYS: Extensions | In House/ HB/OS | 64k | - | 2wks | 3wks |
-| Synful | SYS: GameSnd | In House/ HB/OS | 128k | - | 2wks | 2wks |
-| Synful | BAS: Kernel | In House/ HB OS | 8k | - | 8wks | 4wks |
-| Synful | BAS: core lib&I/O | In House/ HB OS | 8k | - | - | 4wks |
-| Synful | BAS: fs libs | In House/ HB OS | 4k | - | 2wks | 2wks |
-| Synful | BAS: GUI | In House/ HB OS | 800k | £75/disk set | 8wks | 4wks |
-| Synful | Emulator | In House | 64KB | - | 6wks | 2wks |
+| Company | Component | Producer | Code Size | Unit Cost (£/per unit) | Design Cost (wks) | Redesign Cost (wks) | Stored On |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Synful | Boot ldr & HWcfg | In House | 6k | - | 2wks | 2wks | ROM |
+| Synful | Sys: Kernel | In House/ HB/OS | 8k | - | 8wks | 6wks | ROM |
+| Synful | SYS: Libraries | In House/ HB/OS | 8k | - | - | 4wks | ROM |
+| Synful | SYS: Drivers | In House/ HB/OS | 4k | - | - | 2wks | ROM |
+| Synful | SYS: Extensions | In House/ HB/OS | 64k | - | 2wks | 3wks | DISK |
+| Synful | SYS: GameSnd | In House/ HB/OS | 128k | - | 2wks | 2wks | DISK |
+| Synful | BAS: Kernel | In House/ HB OS | 8k | - | 8wks | 4wks | ROM |
+| Synful | BAS: core lib&I/O | In House/ HB OS | 8k | - | - | 4wks | ROM |
+| Synful | BAS: fs libs | In House/ HB OS | 4k | - | 2wks | 2wks | DISK |
+| Synful | BAS: GUI | In House/ HB OS | 800k | £75/disk set | 8wks | 4wks | DISK |
+| Synful | Emulator | In House | 64KB | - | 6wks | 2wks | DISK |
