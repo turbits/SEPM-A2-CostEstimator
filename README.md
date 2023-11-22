@@ -113,7 +113,7 @@ Hardware Architect (design, layout, fault finding):
 - Agency: £400/day or £2000/week
 
 Hardware Engineer (build, test, troubleshoot):
-- Internal: £175/day or £875/week
+- Internal: £175/day or £875/week - only 2 internal available
 - Agency: £275/day or £1375/week
 
 **Note**: This assumes 5 day work weeks.
@@ -144,7 +144,7 @@ Software Architect (design, coding, fault finding):
 - Agency: £450/day or £2250/week
 
 Software Engineer (code, test, troubleshoot):
-- Internal: £195/day or £975/week
+- Internal: £195/day or £975/week - only 2 internal available
 - Agency: £295/day or £1475/week
 
 **Note**: This assumes 5 day work weeks.
