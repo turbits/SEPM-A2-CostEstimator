@@ -17,9 +17,14 @@ Most Likely (M): Assumes being on schedule, average delays, average efficiency.
 This project requires [Python 3.9 or higher](https://www.python.org/downloads/).
 
 1. Clone the repository to your local machine
-2. The specification for the Synputer should be in the root directory of the project, called `specification.csv`. This file contains a list of components, one per line, in the following format:
+2. The hardware and software specification files for the Synputer should be in the root directory of the project, called `hw_spec.csv` and `sw_spec.csv`, respectively. These files contain a list of components, one per line, in the following formats:
     ```
-    Component,UnitPrice,Quantity,DesignCost(optional),ManufactureCost(optional),RedesignCost(optional)
+    # hw_spec.csv
+    component,unit_cost,quantity,design_wks,mfg_cost,redesign_wks
+    ```
+    ```
+    # sw_spec.csv
+    company,component,producer,unit_cost,design_wks,redesign_wks
     ```
 3. Run the following command in the root directory of the project and follow the prompts:
     ```bash
