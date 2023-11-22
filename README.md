@@ -97,7 +97,9 @@ This spec is based on the requirements outlined via EDC in their reply to Synful
 
 ### Unit Costs
 Hardware: £263.50
+
 Software: £75
+
 Total: £338.50
 
 ### Labour Costs
@@ -163,9 +165,13 @@ Software Engineer (code, test, troubleshoot):
 
 ## Totals
 Unit: £338.50 (components & software)
+
 Labour: £214,925 (design & redesign)
+
 Testing: ???
+
 Project Management: ???
 
 Unit Sale Price: £399.99
+
 Unit Profit Margin: £61.49
