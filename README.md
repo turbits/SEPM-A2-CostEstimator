@@ -76,8 +76,8 @@ This spec is based on the requirements outlined via EDC in their reply to Synful
 | STORAGE Cartridge | Cartridges | £5 | 2 | - | - | 2wks |
 | CASE DESKTOP | int keyboard, 3 ext ports (+ exp) | £25 | 1 | 10wks | £20 | 5wks |
 | Misc | resistors,caps,etc | £0.5 | 100 | - | - | - |
+| Total Unit Cost | £293.50 | - | - | - | - | - |
 
-Total Hardware Cost: £293.50
 
 ### Software
 | Company | Component | Producer | Code Size | Unit Cost (£/per unit) | Design Cost (wks) | Redesign Cost (wks) | Stored On |
@@ -93,8 +93,7 @@ Total Hardware Cost: £293.50
 | Synful | BAS: fs libs | In House/ HB OS | 4k | - | 2wks | 2wks | DISK |
 | Synful | BAS: GUI | In House/ HB OS | 800k | £75/disk set | 8wks | 4wks | DISK |
 | Synful | Emulator | In House | 64KB | - | 6wks | 2wks | DISK |
-
-Total Software Cost: £75
+| Total Software Cost | £75 | - | - | - | - | - | - |
 
 ### Unit Costs
 Hardware: £263.50
