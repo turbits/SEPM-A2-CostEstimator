@@ -133,7 +133,7 @@ Hardware Engineer (build, test, troubleshoot):
 | INTSND YM2149 | Agency - architect | £0 | 0 | £2000 | 1 | £2000 |
 | STORAGE Cartridge | Agency - architect | £0 | 0 | £2000 | 2 | £4000 |
 | CASE DESKTOP | Agency - architect | £2000 | 10 | £2000 | 5 | £30000 |
-| Total | - | - | - | - | - | £120,000 |
+| Total | £120,000 | - | - | - | - | - |
 
 
 #### Software
@@ -161,7 +161,7 @@ Software Engineer (code, test, troubleshoot):
 | Synful BAS: core lib&I/O | Agency - architect | £0 | 0 | £1475 | 4 | £5900 |
 | Synful BAS: fs libs | Agency - architect | £2250 | 2 | £1475 | 2 | £7450 |
 | Synful BAS: GUI | Agency - architect | £2250 | 8 | £0 | 0 | £18000 |
-| Total | - | - | - | - | £94,925 |
+| Total | £94,925 | - | - | - | - | - |
 
 ## Totals
 Unit: £338.50 (components & software)
