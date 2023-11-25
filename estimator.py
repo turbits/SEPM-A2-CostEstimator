@@ -1,4 +1,4 @@
-# this is prototype/rapidly developed code and is not indicative of refactored code :^)
+# this is prototype/rapidly developed code and is not indicative of finalized/refactored code :^)
 # https://github.com/turbits/SEPM-A2-CostEstimator
 
 import csv
@@ -165,6 +165,10 @@ o_totalProfitPerUnit = salesPrice - o_totalUnitCost
 o_totalLabourCost = o_hardwareDesignCost + o_softwareDesignCost
 
 
+# ================ GENERATE PERT ESTIMATES
+pert_Unit = (o_totalUnitCost + (4 * m_totalUnitCost) + p_totalUnitCost) / 6
+pert_Labour = (o_totalLabourCost + (4 * m_totalLabourCost) + p_totalLabourCost) / 6
+
 # ================ OUTPUT ESTIMATES
 # pessimistic
 print("")
@@ -175,10 +179,26 @@ print("These estimations are based on the 3-point technique:\n"
       "- Pessimistic {P = 2(M)}: assumes being behind schedule, has the most delays, and low efficiency\n"
       "- Most Likely {M}: 1:1 costs from provided BOMs, assumes being on schedule, average delays, and average efficiency\n"
       "- Optimistic {O = 0.5(M)}: assumes being ahead of schedule, minimal delays, and high efficiency")
-print("")
+print("Following these points is a PERT estimation, which is based on the following formula: Mean = O + 4M + P / 6")
+print("We have included the PERT estimations for unit cost and labour costs.")
 print("========================================")
-print(f"Pessimistic Estimation (P):\n- Unit Cost: {'£{:,.2f}'.format(p_totalUnitCost)}\n- Profit/unit: {'£{:,.2f}'.format(p_totalProfitPerUnit)}\n- Labour Cost: {'£{:,.2f}'.format(p_totalLabourCost)}\n")
+print(f"Pessimistic Estimation (P):\n"
+      f"- Unit Cost: {'£{:,.2f}'.format(p_totalUnitCost)}\n"
+      f"- Profit/unit: {'£{:,.2f}'.format(p_totalProfitPerUnit)}\n"
+      f"- Labour Cost: {'£{:,.2f}'.format(p_totalLabourCost)}\n")
 print("========================================")
-print(f"Most Likely Estimation (M):\n- Unit Cost: {'£{:,.2f}'.format(m_totalUnitCost)}\n- Profit/unit: {'£{:,.2f}'.format(m_totalProfitPerUnit)}\n- Labour Cost: {'£{:,.2f}'.format(m_totalLabourCost)}\n")
+print(f"Most Likely Estimation (M):\n"
+      f"- Unit Cost: {'£{:,.2f}'.format(m_totalUnitCost)}\n"
+      f"- Profit/unit: {'£{:,.2f}'.format(m_totalProfitPerUnit)}\n"
+      f"- Labour Cost: {'£{:,.2f}'.format(m_totalLabourCost)}\n")
 print("========================================")
-print(f"Optimistic Estimation (O):\n- Unit Cost: {'£{:,.2f}'.format(o_totalUnitCost)}\n- Profit/unit: {'£{:,.2f}'.format(o_totalProfitPerUnit)}\n- Labour Cost: {'£{:,.2f}'.format(o_totalLabourCost)}\n")
+print(f"Optimistic Estimation (O):\n"
+      f"- Unit Cost: {'£{:,.2f}'.format(o_totalUnitCost)}\n"
+      f"- Profit/unit: {'£{:,.2f}'.format(o_totalProfitPerUnit)}\n"
+      f"- Labour Cost: {'£{:,.2f}'.format(o_totalLabourCost)}\n")
+
+print("========================================")
+print("PERT Estimations (Mean)")
+print(f"- Unit Cost: {'£{:,.2f}'.format(pert_Unit)}")
+print(f"- Labour Cost: {'£{:,.2f}'.format(pert_Labour)}")
+print("========================================")
