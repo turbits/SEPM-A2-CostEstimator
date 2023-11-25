@@ -6,15 +6,13 @@ import csv
 salesPrice = 399.99
 
 # ================ INITIAL MENU
-print("")
-print("========================================")
+print("\n========================================")
 print("SEPM A2 Cost Estimator")
 print("University of Essex")
 print("Group 1:\n- Nassar Al-Naimi\n- Charles Kuyayama\n- Abdulah Alihu Ngamjeh\n- Trevor Woodman")
 print("November 2023")
 print("https://github.com/turbits/SEPM-A2-CostEstimator")
-print("========================================")
-print("")
+print("========================================\n")
 
 
 # ================ HARDWARE ESTIMATE COMPILATION FROM hw_spec.csv
@@ -173,8 +171,7 @@ pert_Labour = (o_totalLabourCost + (4 * m_totalLabourCost) + p_totalLabourCost) 
 
 # ================ OUTPUT ESTIMATES
 # pessimistic
-print("")
-print("========================================")
+print("\n========================================")
 print("Estimation Results")
 print("========================================")
 print("These estimations are based on the 3-point technique:\n"
@@ -203,4 +200,4 @@ print("========================================")
 print("PERT Estimations (Mean)")
 print(f"- Unit Cost: {'£{:,.2f}'.format(pert_Unit)}")
 print(f"- Labour Cost: {'£{:,.2f}'.format(pert_Labour)}")
-print("========================================")
+print("========================================\n")
