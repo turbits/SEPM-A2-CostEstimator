@@ -8,6 +8,8 @@ This is a piece of software built as part of "Assignment 2 - Presentation" for t
 - Abdulah Alihu Ngamjeh
 - Trevor Woodman
 
+- November 2023
+
 The Synputer Cost Estimator is a command-line tool that takes a series of inputs and outputs a cost estimate for the system including costs for components, development, manufacturing, and testing. It uses a 3-point estimation technique, applied to hardware, software, and testing/QA costs, then combined to give a total cost estimate. The tool also outputs a bill of materials (BOM) for the system based on the specification provided.
 
 Optimistic (O): Assumes being ahead of schedule, minimal delays, high efficiency.
