@@ -3,6 +3,8 @@
 
 import csv
 
+salesPrice = 399.99
+
 # ================ INITIAL MENU
 print("")
 print("========================================")
@@ -150,14 +152,17 @@ o_softwareDesignCost = swDesignLabourCost + swRedesignLabourCost * 0.5
 
 # ================ GENERATE 3POINT FOR TOTAL
 # pessimistic
-p_totalUnitCost = '£{:,.2f}'.format(p_hardwareUnitCost + p_softwareUnitCost)
-p_totalLabourCost = '£{:,.2f}'.format(p_hardwareDesignCost + p_softwareDesignCost)
+p_totalUnitCost = p_hardwareUnitCost + p_softwareUnitCost
+p_totalProfitPerUnit = salesPrice - p_totalUnitCost
+p_totalLabourCost = p_hardwareDesignCost + p_softwareDesignCost
 # most likely
-m_totalUnitCost = '£{:,.2f}'.format(m_hardwareUnitCost + m_softwareUnitCost)
-m_totalLabourCost = '£{:,.2f}'.format(m_hardwareDesignCost + m_softwareDesignCost)
+m_totalUnitCost = m_hardwareUnitCost + m_softwareUnitCost
+m_totalProfitPerUnit = salesPrice - m_totalUnitCost
+m_totalLabourCost = m_hardwareDesignCost + m_softwareDesignCost
 # optimistic
-o_totalUnitCost = '£{:,.2f}'.format(o_hardwareUnitCost + o_softwareUnitCost)
-o_totalLabourCost = '£{:,.2f}'.format(o_hardwareDesignCost + o_softwareDesignCost)
+o_totalUnitCost = o_hardwareUnitCost + o_softwareUnitCost
+o_totalProfitPerUnit = salesPrice - o_totalUnitCost
+o_totalLabourCost = o_hardwareDesignCost + o_softwareDesignCost
 
 
 # ================ OUTPUT ESTIMATES
@@ -172,8 +177,8 @@ print("These estimations are based on the 3-point technique:\n"
       "- Optimistic {O = 0.5(M)}: assumes being ahead of schedule, minimal delays, and high efficiency")
 print("")
 print("========================================")
-print(f"Pessimistic Estimation (P):\n- Unit Cost: {p_totalUnitCost}\n- Labour Cost: {p_totalLabourCost}\n")
+print(f"Pessimistic Estimation (P):\n- Unit Cost: {'£{:,.2f}'.format(p_totalUnitCost)}\n- Profit/unit: {'£{:,.2f}'.format(p_totalProfitPerUnit)}\n- Labour Cost: {'£{:,.2f}'.format(p_totalLabourCost)}\n")
 print("========================================")
-print(f"Most Likely Estimation (M):\n- Unit Cost: {m_totalUnitCost}\n- Labour Cost: {m_totalLabourCost}\n")
+print(f"Most Likely Estimation (M):\n- Unit Cost: {'£{:,.2f}'.format(m_totalUnitCost)}\n- Profit/unit: {'£{:,.2f}'.format(m_totalProfitPerUnit)}\n- Labour Cost: {'£{:,.2f}'.format(m_totalLabourCost)}\n")
 print("========================================")
-print(f"Optimistic Estimation (O):\n- Unit Cost: {o_totalUnitCost}\n- Labour Cost: {o_totalLabourCost}\n")
+print(f"Optimistic Estimation (O):\n- Unit Cost: {'£{:,.2f}'.format(o_totalUnitCost)}\n- Profit/unit: {'£{:,.2f}'.format(o_totalProfitPerUnit)}\n- Labour Cost: {'£{:,.2f}'.format(o_totalLabourCost)}\n")
