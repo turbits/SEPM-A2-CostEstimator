@@ -1,0 +1,12 @@
+component,unit_cost,labourer,design_wks,design_cost,redesign_wks,redesign_cost
+bootldr & hwcfg,0,agency,2,2250,2,1475
+sys:kernel,0,agency,8,2250,6,0
+sys:libraries,0,internal,0,0,4,975
+sys:drivers,0,agency,0,0,2,975
+sys:extensions,0,agency,2,2250,3,1475
+sys:gamesnd,0,agency,2,2250,2,1475
+bas:kernel,0,internal,8,1500,4,975
+bas:corelib&IO,0,agency,0,0,4,1475
+bas:fslibs,0,agency,2,2250,2,1475
+bas:gui,75,agency,8,2250,4,0
+emulator,0,agency,6,2250,2,1475
