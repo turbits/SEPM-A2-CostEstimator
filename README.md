@@ -12,7 +12,7 @@ This is a piece of software built as part of "Assignment 2 - Presentation" for t
 
 The Synputer Cost Estimator is a command-line tool that takes two .csv files for hardware and software BOM and labour costs, and produces a cost estimate for the unit and labour costs of the project.
 
-It uses a 3-point estimation technique, applied to hardware, software, and testing/QA costs, then combined to give a total cost estimate.
+It uses the 3-point estimation technique and PERT calculation (Bell, 2021), applied to hardware, software, and testing/QA costs, then combined to give a total cost estimate.
 - Optimistic (O): Assumes being ahead of schedule, minimal delays, high efficiency.
 - Pessimistic (P): Assumes being behind schedule, most delays, low efficiency.
 - Most Likely (M): Assumes being on schedule, average delays, average efficiency.
