@@ -1,7 +1,16 @@
-component,unit_cost,quantity,design_cost,mfg_cost,redesign_cost
-cpu_ep7500fe,15,1,0,0,4
-ula_gx,5,1,5,0,3
-ram_512kb,10,4,0,0,2
-rom_32kb,5,1,0,0,2
-storage_cartridge,5,2,0,0,2
-case_desktop,25,1,10,20,5
+component,unit_cost,quantity,design_wks,mfg_cost,redesign_wks
+BOARD-SCKT A83-S,25,1,8,14,0
+CPU EP7500FE,15,1,0,0,4
+ULA GX,5,1,5,0,3
+RAM 512Kb,10,4,0,0,2
+ROM 32K,4,1,4,0,1
+ROM 16K,2,1,4,0,1
+AMIDISP XVZ,55,1,0,0,4
+IOP-S 16550 UART Serial,5,2,0,0,1
+Pro Expansion Board,15,1,0,0,4
+IOP-X SCSI,5,1,0,0,4
+IOP-J SC150 2ch joy/mse/kbd,15,2,0,0,1
+INTSND YM2149 3ch sound,2.5,1,0,0,1
+STORAGE cartridge,5,2,0,0,2
+CASE Desktop,25,1,10,20,5
+Misc resistors and caps,0.5,100,0,0,0

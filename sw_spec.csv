@@ -1,12 +1,12 @@
-company,component,code_size,unit_cost,design_cost,redesign_cost,stored_on
-Synful,Bootldr and hwcfg,In House,6,0,2,2,rom
-Synful,sys:Kernel,In House,8,0,8,6,rom
-Synful,sys:Libs,In House,8,0,0,4,rom
-Synful,sys:Drivers,In House,4,0,0,2,rom
-Synful,sys:Extensions,In House,64,0,2,3,disk
-Synful,sys:GameSnd,In House,128,0,2,2,disk
-Synful,bas:Kernel,In House,8,0,8,4,rom
-Synful,bas:Core Lib and IO,In House,8,0,0,4,rom
-Synful,bas:fslibs,In House,4,0,2,2,disk
-Synful,bas:GUI,In House,800,75,8,4,disk
-Synful,Emulator,In House,64,0,6,2,disk
+component,unit_cost,design_wks,redesign_wks
+bootldr & hwcfg,0,2,2
+sys:kernel,0,8,6
+sys:libraries,0,0,4
+sys:drivers,0,0,2
+sys:extensions,0,2,3
+sys:gamesnd,0,2,2
+bas:kernel,0,8,4
+bas:corelib&IO,0,0,4
+bas:fslibs,0,2,2
+bas:gui,75,8,4
+emulator,0,6,2

@@ -17,14 +17,14 @@ Most Likely (M): Assumes being on schedule, average delays, average efficiency.
 This project requires [Python 3.9 or higher](https://www.python.org/downloads/).
 
 1. Clone the repository to your local machine
-2. The hardware and software specifications for the Synputer should be in the root directory of the project, called `hw_spec.csv` and `sw_spec.csv`, respectively. These files contain a list of components, one per line, in the following format:
+2. The hardware and software specification files for the Synputer should be in the root directory of the project, called `hw_spec.csv` and `sw_spec.csv`, respectively. These files contain a list of components, one per line, in the following formats:
     ```
     # hw_spec.csv
-    component,unit_cost,quantity,design_cost,mfg_cost,redesign_cost
+    component,unit_cost,quantity,design_wks,mfg_cost,redesign_wks
     ```
     ```
     # sw_spec.csv
-    company,component,code_size,unit_cost,design_cost,redesign_cost,stored_on
+    company,component,producer,unit_cost,design_wks,redesign_wks
     ```
 3. Run the following command in the root directory of the project and follow the prompts:
     ```bash
@@ -66,20 +66,23 @@ This spec is based on the requirements outlined via EDC in their reply to Synful
 ### Hardware
 | Component | Specification | Unit Cost (£/per 1000) | Quantity (per unit) | Design Cost (wks) | Manufacture Cost (£/per 1000) | Redesign Cost (wks) |
 | --- | --- | --- | --- | --- | --- | --- |
+| BOARD-SCKT A83-S | All ICs have sockets | £25 | 1 | 8wks | £14 | - |
 | CPU EP7500FE | 50MHz, 4KB cache, int VIDC and IOMD | £15 | 1 | - | - | 4wks |
 | ULA GX | glue special, interface XVX and CPU | £5 | 1 | - | - | 3wks |
 | RAM 512KB | 16 bit, 100ns | £10 | 4 | - | - | 2wks |
+| ROM 32K | 32 KB ROM chip | £4 | 1 | 4 | - | 1wks |
+| ROM 16K | 16 KB ROM chip | £2 | 1 | 4 | - | 1wks |
+| AMIDISP XVZ (display) | 64k col, 1280x1024, 100Mhz, 1MB VRAM | £55 | 1 | - | - | 4wks |
+| IOP-S 16550 UART (serial) | 1 ch serial port | £5 | 2 | - | - | 1wks |
+| Pro Expansion ProEx | CPU-Glue-SCSI - 4xRAM | £15 | 1 | - | - | 4wks |
+| IOP-X SCSI | SCSI interface & terminator | £5 | 1 | - | - | 4wks |
+| IOP-J SC150 | 2ch Joy/mse/keybd connector | £15 | 2 | - | - | 1wks |
+| INTSND YM2149 | 3 ch snd, env, 2 8-bit ports | £2.5 | 1 | - | - | 1wks |
 | STORAGE Cartridge | Cartridges | £5 | 2 | - | - | 2wks |
 | CASE DESKTOP | int keyboard, 3 ext ports (+ exp) | £25 | 1 | 10wks | £20 | 5wks |
 | Misc | resistors,caps,etc | £0.5 | 100 | - | - | - |
+| Total Unit Cost | £293.50 | - | - | - | - | - |
 
-Missing:
-- BOARD
-- DISPLAY
-- ROM: sys:bootloader 8k, sys:kernel 8k, sys:libs 8k, sys:drivers 4k, bas:kernel 8k, bas:corelib 8k
-- IOP-S (serial) x2
-- IOP-X (SCSI)
-- INTSND (sound)
 
 ### Software
 | Company | Component | Producer | Code Size | Unit Cost (£/per unit) | Design Cost (wks) | Redesign Cost (wks) | Stored On |
@@ -95,3 +98,85 @@ Missing:
 | Synful | BAS: fs libs | In House/ HB OS | 4k | - | 2wks | 2wks | DISK |
 | Synful | BAS: GUI | In House/ HB OS | 800k | £75/disk set | 8wks | 4wks | DISK |
 | Synful | Emulator | In House | 64KB | - | 6wks | 2wks | DISK |
+| Total Software Cost | £75 | - | - | - | - | - | - |
+
+### Unit Costs
+Hardware: £263.50
+
+Software: £75
+
+Total: £338.50
+
+### Labour Costs
+![resource costs table from case study](images/case_study_3.1.9_resources.png)
+
+#### Hardware
+Based on the Case Study, section 3.1.9 (Resources) table, labour costs are as follows:
+
+Hardware Architect (design, layout, fault finding):
+- Internal: £250/day or £1250/week - only 1 internal available
+- Agency: £400/day or £2000/week
+
+Hardware Engineer (build, test, troubleshoot):
+- Internal: £175/day or £875/week - only 2 internal available
+- Agency: £275/day or £1375/week
+
+**Note**: This assumes 5 day work weeks.
+
+| Component | Internal/Agency | Design Cost (£/per wk) | Design Time (wks) | Redesign Cost (£/per wk) | Redesign Time (wks) | Total Cost (£) |
+| --- | --- | --- | --- | --- | --- | --- |
+| BOARD-SCKT A83-S | Internal - architect 1/1 | £1250 | 8 | £0 | 0 | £10000 |
+| CPU EP7500FE | Agency - architect | £0 | 0 | £2000 | 4 | £8000 |
+| ULA GX | Agency - architect | £2000 | 5 | £2000 | 3 | £16000 |
+| RAM 512KB | Agency - architect | £0 | 0 | £2000 | 2 | £4000 |
+| ROM 32K | Agency - architect | £2000 | 4 | £2000 | 1 | £10000 |
+| ROM 16K | Agency - architect | £2000 | 4 | £2000 | 1 | £10000 |
+| AMIDISP XVZ (display) | Agency - architect | £0 | 0 | £2000 | 4 | £8000 |
+| IOP-S 16550 UART (serial) | Agency - architect | £0 | 0 | £2000 | 1 | £2000 |
+| Pro Expansion ProEx | Agency - architect | £0 | 0 | £2000 | 4 | £8000 |
+| IOP-X SCSI | Agency - architect | £0 | 0 | £2000 | 4 | £8000 |
+| INTSND YM2149 | Agency - architect | £0 | 0 | £2000 | 1 | £2000 |
+| STORAGE Cartridge | Agency - architect | £0 | 0 | £2000 | 2 | £4000 |
+| CASE DESKTOP | Agency - architect | £2000 | 10 | £2000 | 5 | £30000 |
+| Total | £120,000 | - | - | - | - | - |
+
+
+#### Software
+Based on the Case Study, section 3.1.9 (Resources) table, labour costs are as follows:
+
+Software Architect (design, coding, fault finding):
+- Internal: £300/day or £1500/week - only 1 internal available
+- Agency: £450/day or £2250/week
+
+Software Engineer (code, test, troubleshoot):
+- Internal: £195/day or £975/week - only 2 internal available
+- Agency: £295/day or £1475/week
+
+**Note**: This assumes 5 day work weeks.
+
+| Component | Internal/Agency | Design Cost (£/per wk) | Design Time (wks) | Redesign Cost (£/per wk) | Redesign Time (wks) | Total Cost (£) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Synful Boot ldr & HWcfg | Agency - architect & engineer | £2250 | 2 | £1475 | 2 | £7450 |
+| Synful Sys: Kernel | Agency - architect | £2250 | 8 | £0 | 0 | £18000 |
+| Synful SYS: Libraries | Internal - engineer 1/2 | £0 | 0 | £975 | 4 | £3900 |
+| Synful SYS: Drivers | Agency - engineer | £0 | 0 | £975 | 2 | £1950 |
+| Synful SYS: Extensions | Agency - architect & engineer | £2250 | 2 | £1475 | 3 | £8925 |
+| Synful SYS: GameSnd | Agency - architect & engineer | £2250 | 2 | £1475 | 2 | £7450 |
+| Synful BAS: Kernel | Internal - architect 1/1 & engineer 2/2 | £1500 | 8 | £975 | 4 | £15900 |
+| Synful BAS: core lib&I/O | Agency - architect | £0 | 0 | £1475 | 4 | £5900 |
+| Synful BAS: fs libs | Agency - architect | £2250 | 2 | £1475 | 2 | £7450 |
+| Synful BAS: GUI | Agency - architect | £2250 | 8 | £0 | 0 | £18000 |
+| Total | £94,925 | - | - | - | - | - |
+
+## Totals
+Unit: £338.50 (components & software)
+
+Labour: £214,925 (design & redesign)
+
+Testing: ???
+
+Project Management: ???
+
+Unit Sale Price: £399.99
+
+Unit Profit Margin: £61.49
