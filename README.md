@@ -1,5 +1,6 @@
 # Synputer Cost Estimator
 
+
 ## Project Overview
 This is a piece of software built as part of "Assignment 2 - Presentation" for the Software Engineering Project Management course at the University of Essex Online by Group 1, consisting of:
 - Nassar Al-Naimi
@@ -13,8 +14,9 @@ Optimistic (O): Assumes being ahead of schedule, minimal delays, high efficiency
 Pessimistic (P): Assumes being behind schedule, most delays, low efficiency.
 Most Likely (M): Assumes being on schedule, average delays, average efficiency.
 
+
 ## Installation
-This project requires [Python 3.9 or higher](https://www.python.org/downloads/).
+This project requires [Python 3.9 or higher](https://www.python.org/downloads/) - tested on 3.10.6
 
 1. Clone the repository to your local machine
 2. The hardware and software specification files for the Synputer should be in the root directory of the project, called `hw_spec.csv` and `sw_spec.csv`, respectively. These files contain a list of components, one per line, in the following formats:
@@ -48,6 +50,7 @@ Sometime after the initial [project review](https://essex.trevorwoodman.ca/pages
 - Minimum of 2 serial ports that support RS 422/485 standard
 - Board is ready to support a GUI system and mouse if required by the user
 
+
 ## Notes on BOM and Readability
 The following specification is based on the dialogue in the case study, included in the documents folder, and two bill of materials (BOM) provided by the assignment brief for software and hardware, also included. We had to pick materials from these two BOMs. There are some oddities, for example "INTSND" appears to be a made-up term. Based on context (other "mono snd" or "3ch snd" options) we can assume that it is for sound.
 
@@ -60,65 +63,19 @@ According to the case study, a complete system consists of the following compone
 - 4 RAM chips
 - interface (I/O) chips for serial, keyboard, video output, keyboard, screen, storage drive(s), and a case per design
 
+
 ## Synputer Specification
 This spec is based on the requirements outlined via EDC in their reply to Synful Computing after the initial project review. The specification is based on the BOMs provided in the assignment brief, and the dialogue in the case study.
 
-### Hardware
-| Component                 | Specification                        | Unit Cost (£/per 1000) | Quantity (per unit) | Design Cost (wks) | Manufacture Cost (£/per 1000) | Redesign Cost (wks) |
-|---------------------------|--------------------------------------|------------------------|---------------------|-------------------|-------------------------------|---------------------|
-| BOARD-SCKT A83-S          | All ICs have sockets                 | £25                    | 1                   | 8wks              | £14                           | -                   |
-| CPU EP7500FE              | 50MHz, 4KB cache, int VIDC and IOMD  | £15                    | 1                   | -                 | -                             | 4wks                |
-| ULA GX                    | glue special, interface XVX and CPU  | £5                     | 1                   | 5wks              | -                             | 3wks                |
-| RAM 512KB                 | 16 bit, 100ns                        | £10                    | 4                   | -                 | -                             | 2wks                |
-| ROM 32K                   | 32 KB ROM chip                       | £4                     | 1                   | 4wks              | -                             | 1wks                |
-| ROM 16K                   | 16 KB ROM chip                       | £2                     | 1                   | 4wks              | -                             | 1wks                |
-| AMIDISP XVZ (display)     | 64k col, 1280x1024, 100Mhz, 1MB VRAM | £55                    | 1                   | -                 | -                             | 4wks                |
-| IOP-S 16550 UART (serial) | 1 ch serial port                     | £5                     | 2                   | -                 | -                             | 1wks                |
-| Pro Expansion ProEx       | CPU-Glue-SCSI - 4xRAM                | £15                    | 1                   | -                 | -                             | 4wks                |
-| IOP-X SCSI                | SCSI interface & terminator          | £5                     | 1                   | -                 | -                             | 4wks                |
-| IOP-J SC150               | 2ch Joy/mse/keybd connector          | £15                    | 2                   | -                 | -                             | 1wks                |
-| INTSND YM2149             | 3 ch snd, env, 2 8-bit ports         | £2.5                   | 1                   | -                 | -                             | 1wks                |
-| STORAGE Cartridge         | Cartridges                           | £5                     | 2                   | -                 | -                             | 2wks                |
-| CASE DESKTOP              | int keyboard, 3 ext ports (+ exp)    | £25                    | 1                   | 10wks             | £20                           | 5wks                |
-| Misc                      | resistors,caps,etc                   | £0.5                   | 100                 | -                 | -                             | -                   |
-
-Hardware Totals:
-- Unit Cost: £293.50
-- Design Weeks: 26
-- Mfg Cost: £
-- Redesign Weeks: ?
-
-
-### Software
-| Company             | Component         | Producer        | Code Size | Unit Cost (£/per unit) | Design Cost (wks) | Redesign Cost (wks) | Stored On |
-|---------------------|-------------------|-----------------|-----------|------------------------|-------------------|---------------------|-----------|
-| Synful              | Boot ldr & HWcfg  | In House        | 6k        | -                      | 2wks              | 2wks                | ROM       |
-| Synful              | Sys: Kernel       | In House/ HB/OS | 8k        | -                      | 8wks              | 6wks                | ROM       |
-| Synful              | SYS: Libraries    | In House/ HB/OS | 8k        | -                      | -                 | 4wks                | ROM       |
-| Synful              | SYS: Drivers      | In House/ HB/OS | 4k        | -                      | -                 | 2wks                | ROM       |
-| Synful              | SYS: Extensions   | In House/ HB/OS | 64k       | -                      | 2wks              | 3wks                | DISK      |
-| Synful              | SYS: GameSnd      | In House/ HB/OS | 128k      | -                      | 2wks              | 2wks                | DISK      |
-| Synful              | BAS: Kernel       | In House/ HB OS | 8k        | -                      | 8wks              | 4wks                | ROM       |
-| Synful              | BAS: core lib&I/O | In House/ HB OS | 8k        | -                      | -                 | 4wks                | ROM       |
-| Synful              | BAS: fs libs      | In House/ HB OS | 4k        | -                      | 2wks              | 2wks                | DISK      |
-| Synful              | BAS: GUI          | In House/ HB OS | 800k      | £75/disk set           | 8wks              | 4wks                | DISK      |
-| Synful              | Emulator          | In House        | 64KB      | -                      | 6wks              | 2wks                | DISK      |
-| Total Software Cost | £75               | -               | -         | -                      | -                 | -                   | -         |
-
-### Unit Costs
-Hardware: £263.50
-
-Software: £75
-
-Total: £338.50
 
 ### Labour Costs
-![resource costs table from case study](images/case_study_3.1.9_resources.png)
+**Note**: This assumes 5-day work weeks.
 
-#### Hardware
 Based on the Case Study, section 3.1.9 (Resources) table, labour costs are as follows:
 
-Hardware Architect (design, layout, fault finding):
+![resource costs table from case study](images/case_study_3.1.9_resources.png)
+
+Hardware Architect (design, layout, fault-finding) - I used this for all hardware since it all says redesign 🤷:
 - Internal: £250/day or £1250/week - only 1 internal available
 - Agency: £400/day or £2000/week
 
@@ -126,30 +83,7 @@ Hardware Engineer (build, test, troubleshoot):
 - Internal: £175/day or £875/week - only 2 internal available
 - Agency: £275/day or £1375/week
 
-**Note**: This assumes 5 day work weeks.
-
-| Component | Internal/Agency | Design Cost (£/per wk) | Design Time (wks) | Redesign Cost (£/per wk) | Redesign Time (wks) | Total Cost (£) |
-| --- | --- | --- | --- | --- | --- | --- |
-| BOARD-SCKT A83-S | Internal - architect 1/1 | £1250 | 8 | £0 | 0 | £10000 |
-| CPU EP7500FE | Agency - architect | £0 | 0 | £2000 | 4 | £8000 |
-| ULA GX | Agency - architect | £2000 | 5 | £2000 | 3 | £16000 |
-| RAM 512KB | Agency - architect | £0 | 0 | £2000 | 2 | £4000 |
-| ROM 32K | Agency - architect | £2000 | 4 | £2000 | 1 | £10000 |
-| ROM 16K | Agency - architect | £2000 | 4 | £2000 | 1 | £10000 |
-| AMIDISP XVZ (display) | Agency - architect | £0 | 0 | £2000 | 4 | £8000 |
-| IOP-S 16550 UART (serial) | Agency - architect | £0 | 0 | £2000 | 1 | £2000 |
-| Pro Expansion ProEx | Agency - architect | £0 | 0 | £2000 | 4 | £8000 |
-| IOP-X SCSI | Agency - architect | £0 | 0 | £2000 | 4 | £8000 |
-| INTSND YM2149 | Agency - architect | £0 | 0 | £2000 | 1 | £2000 |
-| STORAGE Cartridge | Agency - architect | £0 | 0 | £2000 | 2 | £4000 |
-| CASE DESKTOP | Agency - architect | £2000 | 10 | £2000 | 5 | £30000 |
-| Total | £120,000 | - | - | - | - | - |
-
-
-#### Software
-Based on the Case Study, section 3.1.9 (Resources) table, labour costs are as follows:
-
-Software Architect (design, coding, fault finding):
+Software Architect (design, coding, fault-finding):
 - Internal: £300/day or £1500/week - only 1 internal available
 - Agency: £450/day or £2250/week
 
@@ -157,31 +91,61 @@ Software Engineer (code, test, troubleshoot):
 - Internal: £195/day or £975/week - only 2 internal available
 - Agency: £295/day or £1475/week
 
-**Note**: This assumes 5 day work weeks.
 
-| Component | Internal/Agency | Design Cost (£/per wk) | Design Time (wks) | Redesign Cost (£/per wk) | Redesign Time (wks) | Total Cost (£) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Synful Boot ldr & HWcfg | Agency - architect & engineer | £2250 | 2 | £1475 | 2 | £7450 |
-| Synful Sys: Kernel | Agency - architect | £2250 | 8 | £0 | 0 | £18000 |
-| Synful SYS: Libraries | Internal - engineer 1/2 | £0 | 0 | £975 | 4 | £3900 |
-| Synful SYS: Drivers | Agency - engineer | £0 | 0 | £975 | 2 | £1950 |
-| Synful SYS: Extensions | Agency - architect & engineer | £2250 | 2 | £1475 | 3 | £8925 |
-| Synful SYS: GameSnd | Agency - architect & engineer | £2250 | 2 | £1475 | 2 | £7450 |
-| Synful BAS: Kernel | Internal - architect 1/1 & engineer 2/2 | £1500 | 8 | £975 | 4 | £15900 |
-| Synful BAS: core lib&I/O | Agency - architect | £0 | 0 | £1475 | 4 | £5900 |
-| Synful BAS: fs libs | Agency - architect | £2250 | 2 | £1475 | 2 | £7450 |
-| Synful BAS: GUI | Agency - architect | £2250 | 8 | £0 | 0 | £18000 |
-| Total | £94,925 | - | - | - | - | - |
+### Hardware Component and Labour Costs
+| component                   | unit_cost | quantity | mfg_cost | labourer | design_wks | design_cost | redesign_wks | redesign_cost |
+|-----------------------------|-----------|----------|----------|----------|------------|-------------|--------------|---------------|
+| BOARD-SCKT A83-S            | 25        | 1        | 14       | internal | 8          | 1250        | 0            | 0             |
+| CPU EP7500FE                | 15        | 1        | 0        | agency   | 0          | 0           | 4            | 2000          |
+| ULA GX                      | 5         | 1        | 0        | agency   | 5          | 2000        | 3            | 2000          |
+| RAM 512Kb                   | 10        | 4        | 0        | agency   | 0          | 0           | 2            | 2000          |
+| ROM 32K                     | 4         | 1        | 0        | agency   | 4          | 2000        | 1            | 2000          |
+| ROM 16K                     | 2         | 1        | 0        | agency   | 4          | 2000        | 1            | 2000          |
+| AMIDISP XVZ                 | 55        | 1        | 0        | agency   | 0          | 0           | 4            | 2000          |
+| IOP-S 16550 UART Serial     | 5         | 2        | 0        | agency   | 0          | 0           | 1            | 2000          |
+| IOP-J SC150 2ch joy/mse/kbd | 15        | 2        | 0        | agency   | 0          | 0           | 1            | 2000          |
+| INTSND YM2149 3ch sound     | 2.5       | 1        | 0        | agency   | 0          | 0           | 1            | 2000          |
+| STORAGE cartridge           | 5         | 2        | 0        | agency   | 0          | 0           | 2            | 2000          |
+| CASE Desktop                | 25        | 1        | 20       | agency   | 10         | 2000        | 5            | 2000          |
+| Misc resistors and caps     | 0.5       | 100      | 0        | none     | 0          | 0           | 0            | 0             |
+|                             |           |          |          |          |            |             |              |               |
+| Totals:                     |           |          |          |          |            |             |              |               |
+| Unit Cost (incl. Mfg)       | 307.50    |          |          |          |            |             |              |               |
+| Mfg Cost/unit               | 34        |          |          |          |            |             |              |               |
+| Design Wks                  | 31        |          |          |          |            |             |              |               |
+| Design Cost                 | 56000     |          |          |          |            |             |              |               |
+| Redesign Wks                | 25        |          |          |          |            |             |              |               |
+| Redesign Cost               | 50000     |          |          |          |            |             |              |               |
+| Total Design & Redesign     | 106000    |          |          |          |            |             |              |               |
+
+
+### Software Component and Labour Costs
+| component               | unit_cost | labourer | design_wks | design_cost | redesign_wks | redesign_cost |
+|-------------------------|-----------|----------|------------|-------------|--------------|---------------|
+| bootldr & hwcfg         | 0         | agency   | 2          | 2250        | 2            | 1475          |
+| sys:kernel              | 0         | agency   | 8          | 2250        | 6            | 0             |
+| sys:libraries           | 0         | internal | 0          | 0           | 4            | 975           |
+| sys:drivers             | 0         | agency   | 0          | 0           | 2            | 975           |
+| sys:extensions          | 0         | agency   | 2          | 2250        | 3            | 1475          |
+| sys:gamesnd             | 0         | agency   | 2          | 2250        | 2            | 1475          |
+| bas:kernel              | 0         | internal | 8          | 1500        | 4            | 975           |
+| bas:corelib&IO          | 0         | agency   | 0          | 0           | 4            | 1475          |
+| bas:fslibs              | 0         | agency   | 2          | 2250        | 2            | 1475          |
+| bas:gui                 | 75        | agency   | 8          | 2250        | 4            | 0             |
+| emulator                | 0         | agency   | 6          | 2250        | 2            | 1475          |
+|                         |           |          |            |             |              |               |
+| Totals:                 |           |          |            |             |              |               |
+| Unit Cost               | 75        |          |            |             |              |               |
+| Design Weeks            | 38        |          |            |             |              |               |
+| Design Cost             | 79500     |          |            |             |              |               |
+| Redesign Weeks          | 35        |          |            |             |              |               |
+| Redesign Cost           | 31875     |          |            |             |              |               |
+| Total Design & Redesign | 111375    |          |            |             |              |               |
+
 
 ## Totals
-Unit: £338.50 (components & software)
-
-Labour: £214,925 (design & redesign)
-
-Testing: ???
-
-Project Management: ???
-
-Unit Sale Price: £399.99
-
-Unit Profit Margin: £61.49
+- Unit: £348.50 (components & software)
+- Unit Sale Price: £399.99
+- Unit Profit Margin: £51.49
+- HW & SW Labour: £231,375 (design & redesign)
+- Testing: ???
