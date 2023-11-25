@@ -152,3 +152,7 @@ Software Engineer (code, test, troubleshoot):
 - Unit Profit Margin: £51.49
 - HW & SW Labour: £231,375 (design & redesign)
 - Testing: ???
+
+
+# References
+- Bell, M. (2021). Project Management Academy: A Three-Point Estimating Technique: PERT. Available at: https://projectmanagementacademy.net/resources/blog/a-three-point-estimating-technique-pert/ [Accessed 25 November 2023]
