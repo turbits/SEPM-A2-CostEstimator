@@ -37,7 +37,8 @@ with open('csv/hw_spec.csv', 'r') as hwSpecFile:
     for row in hwCsvReader:
         hwItems.append(row)
 
-    # looping over the items in the array
+    # looping over the items (rows) in the array and
+    # temp storing each col item in a var to use them to compile cost vars
     for item in hwItems:
         itemUnitCost = float(item[1])
         itemQuantity = float(item[2])
@@ -168,6 +169,7 @@ o_totalLabourCost = o_hardwareDesignCost + o_softwareDesignCost
 # ================ GENERATE PERT ESTIMATES
 pert_Unit = (o_totalUnitCost + (4 * m_totalUnitCost) + p_totalUnitCost) / 6
 pert_Labour = (o_totalLabourCost + (4 * m_totalLabourCost) + p_totalLabourCost) / 6
+
 
 # ================ OUTPUT ESTIMATES
 # pessimistic
