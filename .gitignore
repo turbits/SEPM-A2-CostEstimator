@@ -1,0 +1,9 @@
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+**/~$*.docx
+**/~$*.pptx
+**/~*.tmp
+_site/feed.xml
+.idea
