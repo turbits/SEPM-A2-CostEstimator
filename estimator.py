@@ -129,24 +129,30 @@ totalDesignCost = hwDesignLabourCost + hwRedesignLabourCost + swDesignLabourCost
 # pessimistic (x2) - assumes being behind schedule, most delays, low efficiency
 p_hardwareUnitCost = hwUnitCost * 2
 p_hardwareDesignCost = hwDesignLabourCost + hwRedesignLabourCost * 2
+p_hardwareDesignWeeks = hwDesignWeeks + hwRedesignWeeks * 2
 # most likely (x1) - assumes being on schedule, average delays, average efficiency
 m_hardwareUnitCost = hwUnitCost
 m_hardwareDesignCost = hwDesignLabourCost + hwRedesignLabourCost
+m_hardwareDesignWeeks = hwDesignWeeks + hwRedesignWeeks
 # optimistic (x0.5) - assumes being ahead of schedule, minimal delays, high efficiency
 o_hardwareUnitCost = hwUnitCost * 0.5
 o_hardwareDesignCost = hwDesignLabourCost + hwRedesignLabourCost * 0.5
+o_hardwareDesignWeeks = hwDesignWeeks + hwRedesignWeeks * 0.5
 
 
 # ================ GENERATE 3POINT FOR SOFTWARE
 # pessimistic (x2) - assumes being behind schedule, most delays, low efficiency
 p_softwareUnitCost = swUnitCost * 2
 p_softwareDesignCost = swDesignLabourCost + swRedesignLabourCost * 2
+p_softwareDesignWeeks = swDesignWeeks + swRedesignWeeks * 2
 # most likely (x1) - assumes being on schedule, average delays, average efficiency
 m_softwareUnitCost = swUnitCost
 m_softwareDesignCost = swDesignLabourCost + swRedesignLabourCost
+m_softwareDesignWeeks = swDesignWeeks + swRedesignWeeks
 # optimistic (x0.5) - assumes being ahead of schedule, minimal delays, high efficiency
 o_softwareUnitCost = swUnitCost * 0.5
 o_softwareDesignCost = swDesignLabourCost + swRedesignLabourCost * 0.5
+o_softwareDesignWeeks = swDesignWeeks + swRedesignWeeks * 0.5
 
 
 # ================ GENERATE 3POINT FOR TOTAL
@@ -154,19 +160,23 @@ o_softwareDesignCost = swDesignLabourCost + swRedesignLabourCost * 0.5
 p_totalUnitCost = p_hardwareUnitCost + p_softwareUnitCost
 p_totalProfitPerUnit = salesPrice - p_totalUnitCost
 p_totalLabourCost = p_hardwareDesignCost + p_softwareDesignCost
+p_totalLabourWeeks = p_hardwareDesignWeeks + p_softwareDesignWeeks
 # most likely
 m_totalUnitCost = m_hardwareUnitCost + m_softwareUnitCost
 m_totalProfitPerUnit = salesPrice - m_totalUnitCost
 m_totalLabourCost = m_hardwareDesignCost + m_softwareDesignCost
+m_totalLabourWeeks = m_hardwareDesignWeeks + m_softwareDesignWeeks
 # optimistic
 o_totalUnitCost = o_hardwareUnitCost + o_softwareUnitCost
 o_totalProfitPerUnit = salesPrice - o_totalUnitCost
 o_totalLabourCost = o_hardwareDesignCost + o_softwareDesignCost
+o_totalLabourWeeks = o_hardwareDesignWeeks + o_softwareDesignWeeks
 
 
 # ================ GENERATE PERT ESTIMATES
 pert_Unit = (o_totalUnitCost + (4 * m_totalUnitCost) + p_totalUnitCost) / 6
-pert_Labour = (o_totalLabourCost + (4 * m_totalLabourCost) + p_totalLabourCost) / 6
+pert_LabourCost = (o_totalLabourCost + (4 * m_totalLabourCost) + p_totalLabourCost) / 6
+pert_LabourWeeks = (o_totalLabourWeeks + (4 * m_totalLabourWeeks) + p_totalLabourWeeks) / 6
 
 
 # ================ OUTPUT ESTIMATES
@@ -184,20 +194,24 @@ print("========================================")
 print(f"Pessimistic Estimation (P):\n"
       f"- Unit Cost: {'£{:,.2f}'.format(p_totalUnitCost)}\n"
       f"- Profit/unit: {'£{:,.2f}'.format(p_totalProfitPerUnit)}\n"
-      f"- Labour Cost: {'£{:,.2f}'.format(p_totalLabourCost)}\n")
+      f"- Labour Cost: {'£{:,.2f}'.format(p_totalLabourCost)}\n"
+      f"- Labour Weeks: {p_totalLabourWeeks} wks")
 print("========================================")
 print(f"Most Likely Estimation (M):\n"
       f"- Unit Cost: {'£{:,.2f}'.format(m_totalUnitCost)}\n"
       f"- Profit/unit: {'£{:,.2f}'.format(m_totalProfitPerUnit)}\n"
-      f"- Labour Cost: {'£{:,.2f}'.format(m_totalLabourCost)}\n")
+      f"- Labour Cost: {'£{:,.2f}'.format(m_totalLabourCost)}\n"
+      f"- Labour Weeks: {m_totalLabourWeeks} wks")
 print("========================================")
 print(f"Optimistic Estimation (O):\n"
       f"- Unit Cost: {'£{:,.2f}'.format(o_totalUnitCost)}\n"
       f"- Profit/unit: {'£{:,.2f}'.format(o_totalProfitPerUnit)}\n"
-      f"- Labour Cost: {'£{:,.2f}'.format(o_totalLabourCost)}\n")
+      f"- Labour Cost: {'£{:,.2f}'.format(o_totalLabourCost)}\n"
+      f"- Labour Weeks: {o_totalLabourWeeks} wks")
 
 print("========================================")
 print("PERT Estimations (Mean)")
 print(f"- Unit Cost: {'£{:,.2f}'.format(pert_Unit)}")
-print(f"- Labour Cost: {'£{:,.2f}'.format(pert_Labour)}")
+print(f"- Labour Cost: {'£{:,.2f}'.format(pert_LabourCost)}")
+print(f"- Labour Weeks: {pert_LabourWeeks} weeks")
 print("========================================\n")
