@@ -64,41 +64,46 @@ According to the case study, a complete system consists of the following compone
 This spec is based on the requirements outlined via EDC in their reply to Synful Computing after the initial project review. The specification is based on the BOMs provided in the assignment brief, and the dialogue in the case study.
 
 ### Hardware
-| Component | Specification | Unit Cost (£/per 1000) | Quantity (per unit) | Design Cost (wks) | Manufacture Cost (£/per 1000) | Redesign Cost (wks) |
-| --- | --- | --- | --- | --- | --- | --- |
-| BOARD-SCKT A83-S | All ICs have sockets | £25 | 1 | 8wks | £14 | - |
-| CPU EP7500FE | 50MHz, 4KB cache, int VIDC and IOMD | £15 | 1 | - | - | 4wks |
-| ULA GX | glue special, interface XVX and CPU | £5 | 1 | - | - | 3wks |
-| RAM 512KB | 16 bit, 100ns | £10 | 4 | - | - | 2wks |
-| ROM 32K | 32 KB ROM chip | £4 | 1 | 4 | - | 1wks |
-| ROM 16K | 16 KB ROM chip | £2 | 1 | 4 | - | 1wks |
-| AMIDISP XVZ (display) | 64k col, 1280x1024, 100Mhz, 1MB VRAM | £55 | 1 | - | - | 4wks |
-| IOP-S 16550 UART (serial) | 1 ch serial port | £5 | 2 | - | - | 1wks |
-| Pro Expansion ProEx | CPU-Glue-SCSI - 4xRAM | £15 | 1 | - | - | 4wks |
-| IOP-X SCSI | SCSI interface & terminator | £5 | 1 | - | - | 4wks |
-| IOP-J SC150 | 2ch Joy/mse/keybd connector | £15 | 2 | - | - | 1wks |
-| INTSND YM2149 | 3 ch snd, env, 2 8-bit ports | £2.5 | 1 | - | - | 1wks |
-| STORAGE Cartridge | Cartridges | £5 | 2 | - | - | 2wks |
-| CASE DESKTOP | int keyboard, 3 ext ports (+ exp) | £25 | 1 | 10wks | £20 | 5wks |
-| Misc | resistors,caps,etc | £0.5 | 100 | - | - | - |
-| Total Unit Cost | £293.50 | - | - | - | - | - |
+| Component                 | Specification                        | Unit Cost (£/per 1000) | Quantity (per unit) | Design Cost (wks) | Manufacture Cost (£/per 1000) | Redesign Cost (wks) |
+|---------------------------|--------------------------------------|------------------------|---------------------|-------------------|-------------------------------|---------------------|
+| BOARD-SCKT A83-S          | All ICs have sockets                 | £25                    | 1                   | 8wks              | £14                           | -                   |
+| CPU EP7500FE              | 50MHz, 4KB cache, int VIDC and IOMD  | £15                    | 1                   | -                 | -                             | 4wks                |
+| ULA GX                    | glue special, interface XVX and CPU  | £5                     | 1                   | 5wks              | -                             | 3wks                |
+| RAM 512KB                 | 16 bit, 100ns                        | £10                    | 4                   | -                 | -                             | 2wks                |
+| ROM 32K                   | 32 KB ROM chip                       | £4                     | 1                   | 4wks              | -                             | 1wks                |
+| ROM 16K                   | 16 KB ROM chip                       | £2                     | 1                   | 4wks              | -                             | 1wks                |
+| AMIDISP XVZ (display)     | 64k col, 1280x1024, 100Mhz, 1MB VRAM | £55                    | 1                   | -                 | -                             | 4wks                |
+| IOP-S 16550 UART (serial) | 1 ch serial port                     | £5                     | 2                   | -                 | -                             | 1wks                |
+| Pro Expansion ProEx       | CPU-Glue-SCSI - 4xRAM                | £15                    | 1                   | -                 | -                             | 4wks                |
+| IOP-X SCSI                | SCSI interface & terminator          | £5                     | 1                   | -                 | -                             | 4wks                |
+| IOP-J SC150               | 2ch Joy/mse/keybd connector          | £15                    | 2                   | -                 | -                             | 1wks                |
+| INTSND YM2149             | 3 ch snd, env, 2 8-bit ports         | £2.5                   | 1                   | -                 | -                             | 1wks                |
+| STORAGE Cartridge         | Cartridges                           | £5                     | 2                   | -                 | -                             | 2wks                |
+| CASE DESKTOP              | int keyboard, 3 ext ports (+ exp)    | £25                    | 1                   | 10wks             | £20                           | 5wks                |
+| Misc                      | resistors,caps,etc                   | £0.5                   | 100                 | -                 | -                             | -                   |
+
+Hardware Totals:
+- Unit Cost: £293.50
+- Design Weeks: 26
+- Mfg Cost: £
+- Redesign Weeks: ?
 
 
 ### Software
-| Company | Component | Producer | Code Size | Unit Cost (£/per unit) | Design Cost (wks) | Redesign Cost (wks) | Stored On |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Synful | Boot ldr & HWcfg | In House | 6k | - | 2wks | 2wks | ROM |
-| Synful | Sys: Kernel | In House/ HB/OS | 8k | - | 8wks | 6wks | ROM |
-| Synful | SYS: Libraries | In House/ HB/OS | 8k | - | - | 4wks | ROM |
-| Synful | SYS: Drivers | In House/ HB/OS | 4k | - | - | 2wks | ROM |
-| Synful | SYS: Extensions | In House/ HB/OS | 64k | - | 2wks | 3wks | DISK |
-| Synful | SYS: GameSnd | In House/ HB/OS | 128k | - | 2wks | 2wks | DISK |
-| Synful | BAS: Kernel | In House/ HB OS | 8k | - | 8wks | 4wks | ROM |
-| Synful | BAS: core lib&I/O | In House/ HB OS | 8k | - | - | 4wks | ROM |
-| Synful | BAS: fs libs | In House/ HB OS | 4k | - | 2wks | 2wks | DISK |
-| Synful | BAS: GUI | In House/ HB OS | 800k | £75/disk set | 8wks | 4wks | DISK |
-| Synful | Emulator | In House | 64KB | - | 6wks | 2wks | DISK |
-| Total Software Cost | £75 | - | - | - | - | - | - |
+| Company             | Component         | Producer        | Code Size | Unit Cost (£/per unit) | Design Cost (wks) | Redesign Cost (wks) | Stored On |
+|---------------------|-------------------|-----------------|-----------|------------------------|-------------------|---------------------|-----------|
+| Synful              | Boot ldr & HWcfg  | In House        | 6k        | -                      | 2wks              | 2wks                | ROM       |
+| Synful              | Sys: Kernel       | In House/ HB/OS | 8k        | -                      | 8wks              | 6wks                | ROM       |
+| Synful              | SYS: Libraries    | In House/ HB/OS | 8k        | -                      | -                 | 4wks                | ROM       |
+| Synful              | SYS: Drivers      | In House/ HB/OS | 4k        | -                      | -                 | 2wks                | ROM       |
+| Synful              | SYS: Extensions   | In House/ HB/OS | 64k       | -                      | 2wks              | 3wks                | DISK      |
+| Synful              | SYS: GameSnd      | In House/ HB/OS | 128k      | -                      | 2wks              | 2wks                | DISK      |
+| Synful              | BAS: Kernel       | In House/ HB OS | 8k        | -                      | 8wks              | 4wks                | ROM       |
+| Synful              | BAS: core lib&I/O | In House/ HB OS | 8k        | -                      | -                 | 4wks                | ROM       |
+| Synful              | BAS: fs libs      | In House/ HB OS | 4k        | -                      | 2wks              | 2wks                | DISK      |
+| Synful              | BAS: GUI          | In House/ HB OS | 800k      | £75/disk set           | 8wks              | 4wks                | DISK      |
+| Synful              | Emulator          | In House        | 64KB      | -                      | 6wks              | 2wks                | DISK      |
+| Total Software Cost | £75               | -               | -         | -                      | -                 | -                   | -         |
 
 ### Unit Costs
 Hardware: £263.50
