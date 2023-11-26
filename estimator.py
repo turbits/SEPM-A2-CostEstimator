@@ -15,8 +15,7 @@ print("https://github.com/turbits/SEPM-A2-CostEstimator")
 print("========================================\n")
 
 # region HARDWARE SECTION
-# variables to contain csv items, and various numbers used later in estimations
-hwItems = []
+# variables to contain various numbers used later in estimations
 hwUnitCost = 0
 hwMfgCost = 0
 hwDesignWeeks = 0
@@ -32,21 +31,17 @@ with open('csv/hw_spec.csv', 'r') as hwSpecFile:
     # this call is to skip over the header line of the csv file
     next(hwCsvReader)
 
-    # compiling an array of the rows(items) in the hw_spec file
-    for row in hwCsvReader:
-        hwItems.append(row)
-
-    # looping over the items in the array that we just compiled
+    # looping over the rows in the csv reader object
     # and temporarily keeping a bunch of local variables for each column in the item row
-    for item in hwItems:
-        itemUnitCost = float(item[1])
-        itemQuantity = float(item[2])
-        itemMfgCost = float(item[3])
-        itemDesignLabourer = str(item[4])
-        itemDesignWeeks = float(item[5])
-        itemDesignLabourCost = float(item[6])
-        itemRedesignWeeks = float(item[7])
-        itemRedesignLabourCost = float(item[8])
+    for row in hwCsvReader:
+        itemUnitCost = float(row[1])
+        itemQuantity = float(row[2])
+        itemMfgCost = float(row[3])
+        itemDesignLabourer = str(row[4])
+        itemDesignWeeks = float(row[5])
+        itemDesignLabourCost = float(row[6])
+        itemRedesignWeeks = float(row[7])
+        itemRedesignLabourCost = float(row[8])
 
         # compiling totals for each column where appropriate
         if itemQuantity > 1:
@@ -71,8 +66,7 @@ with open('csv/hw_spec.csv', 'r') as hwSpecFile:
 # endregion
 
 # region SOFTWARE SECTION
-# variables to contain csv items, and various numbers used later in estimations
-swItems = []
+# variables to contain various numbers used later in estimations
 swUnitCost = 0
 swMfgCost = 0
 swDesignWeeks = 0
@@ -86,19 +80,16 @@ with open('csv/sw_spec.csv', 'r') as swSpecFile:
     swCsvReader = csv.reader(swSpecFile)
     # this call is to skip over the header line of the csv file
     next(swCsvReader)
-    # compiling an array of the rows(items) in the sw_spec file
-    for row in swCsvReader:
-        swItems.append(row)
 
-    # looping over the items in the array that we just compiled
+    # looping over the rows in the csv reader object
     # and temporarily keeping a bunch of local variables for each column in the item row
-    for item in swItems:
-        itemUnitCost = float(item[1])
-        itemDesignLabourer = str(item[2])
-        itemDesignWeeks = float(item[3])
-        itemDesignLabourCost = float(item[4])
-        itemRedesignWeeks = float(item[5])
-        itemRedesignLabourCost = float(item[6])
+    for row in swCsvReader:
+        itemUnitCost = float(row[1])
+        itemDesignLabourer = str(row[2])
+        itemDesignWeeks = float(row[3])
+        itemDesignLabourCost = float(row[4])
+        itemRedesignWeeks = float(row[5])
+        itemRedesignLabourCost = float(row[6])
 
         # compiling totals for each column where appropriate
         swUnitCost += itemUnitCost
