@@ -1,5 +1,6 @@
 # Synputer Cost Estimator
 
+https://github.com/turbits/SEPM-A2-CostEstimator
 
 ## Project Overview
 This is a piece of software built as part of "Assignment 2 - Presentation" for the Software Engineering Project Management course at the University of Essex Online by Group 1, consisting of:
