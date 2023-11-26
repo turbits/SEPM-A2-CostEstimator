@@ -14,9 +14,8 @@ print("November 2023")
 print("https://github.com/turbits/SEPM-A2-CostEstimator")
 print("========================================\n")
 
-
-# ================ HARDWARE ESTIMATE COMPILATION FROM hw_spec.csv
-hwHeader = []
+# region HARDWARE SECTION
+# variables to contain csv items, and various numbers used later in estimations
 hwItems = []
 hwUnitCost = 0
 hwMfgCost = 0
@@ -28,15 +27,17 @@ hwRedesignLabourCost = 0
 # opening the hw_spec file. 'r' means opening the file as reading mode,
 # and it is the default, but I prefer to be explicit
 with open('csv/hw_spec.csv', 'r') as hwSpecFile:
+    # here we are opening the file and storing the csv reader object in a variable to use
     hwCsvReader = csv.reader(hwSpecFile)
-    hwHeader = next(hwCsvReader)
+    # this call is to skip over the header line of the csv file
+    next(hwCsvReader)
 
     # compiling an array of the rows(items) in the hw_spec file
     for row in hwCsvReader:
         hwItems.append(row)
 
-    # looping over the items (rows) in the array and
-    # temp storing each col item in a var to use them to compile cost vars
+    # looping over the items in the array that we just compiled
+    # and temporarily keeping a bunch of local variables for each column in the item row
     for item in hwItems:
         itemUnitCost = float(item[1])
         itemQuantity = float(item[2])
@@ -47,7 +48,7 @@ with open('csv/hw_spec.csv', 'r') as hwSpecFile:
         itemRedesignWeeks = float(item[7])
         itemRedesignLabourCost = float(item[8])
 
-        # compiling totals for each col where appropriate
+        # compiling totals for each column where appropriate
         if itemQuantity > 1:
             hwUnitCost += (itemUnitCost * itemQuantity)
         else:
@@ -67,10 +68,10 @@ with open('csv/hw_spec.csv', 'r') as hwSpecFile:
         # only calc cost if there is work done
         if itemRedesignLabourCost > 0:
             hwRedesignLabourCost += (itemRedesignWeeks * itemRedesignLabourCost)
+# endregion
 
-
-# ================ SOFTWARE ESTIMATE COMPILATION FROM sw_spec.csv
-swHeader = []
+# region SOFTWARE SECTION
+# variables to contain csv items, and various numbers used later in estimations
 swItems = []
 swUnitCost = 0
 swMfgCost = 0
@@ -79,17 +80,18 @@ swDesignLabourCost = 0
 swRedesignWeeks = 0
 swRedesignLabourCost = 0
 
-# opening the sw_spec file, basically the same as the hw_spec file
-# but this one has different columns
+# opening the sw_spec file, basically the same as the hw_spec file with different cols
 with open('csv/sw_spec.csv', 'r') as swSpecFile:
+    # here we are opening the file and storing the csv reader object in a variable to use
     swCsvReader = csv.reader(swSpecFile)
-    swHeader = next(swCsvReader)
-
-    # compiling an array of the rows(items) in the hw_spec file
+    # this call is to skip over the header line of the csv file
+    next(swCsvReader)
+    # compiling an array of the rows(items) in the sw_spec file
     for row in swCsvReader:
         swItems.append(row)
 
-    # looping over the items in the array
+    # looping over the items in the array that we just compiled
+    # and temporarily keeping a bunch of local variables for each column in the item row
     for item in swItems:
         itemUnitCost = float(item[1])
         itemDesignLabourer = str(item[2])
@@ -98,7 +100,7 @@ with open('csv/sw_spec.csv', 'r') as swSpecFile:
         itemRedesignWeeks = float(item[5])
         itemRedesignLabourCost = float(item[6])
 
-        # compiling totals for each col where appropriate
+        # compiling totals for each column where appropriate
         swUnitCost += itemUnitCost
 
         # design costs
@@ -112,7 +114,7 @@ with open('csv/sw_spec.csv', 'r') as swSpecFile:
         # only calc cost if there is work done
         if itemRedesignLabourCost > 0:
             swRedesignLabourCost += (itemRedesignWeeks * itemRedesignLabourCost)
-
+# endregion
 
 # ================ TOTALS
 totalUnitCost = hwUnitCost + swUnitCost
