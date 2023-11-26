@@ -14,6 +14,7 @@ print("November 2023")
 print("https://github.com/turbits/SEPM-A2-CostEstimator")
 print("========================================\n")
 
+
 # region HARDWARE SECTION
 # variables to contain various numbers used later in estimations
 hwUnitCost = 0
@@ -65,6 +66,7 @@ with open('csv/hw_spec.csv', 'r') as hwSpecFile:
             hwRedesignLabourCost += (itemRedesignWeeks * itemRedesignLabourCost)
 # endregion
 
+
 # region SOFTWARE SECTION
 # variables to contain various numbers used later in estimations
 swUnitCost = 0
@@ -107,12 +109,8 @@ with open('csv/sw_spec.csv', 'r') as swSpecFile:
             swRedesignLabourCost += (itemRedesignWeeks * itemRedesignLabourCost)
 # endregion
 
-# ================ TOTALS
-totalUnitCost = hwUnitCost + swUnitCost
-totalDesignCost = hwDesignLabourCost + hwRedesignLabourCost + swDesignLabourCost + swRedesignLabourCost
 
-
-# ================ 3POINT GENERATION
+# region 3POINT GENERATION AND PERT ESTIMATIONS
 # P = 2(M) // pessimistic
 # M = at cost // most likely
 # O = 0.5(M) // optimistic
@@ -170,8 +168,10 @@ o_totalLabourWeeks = o_hardwareDesignWeeks + o_softwareDesignWeeks
 pert_Unit = (o_totalUnitCost + (4 * m_totalUnitCost) + p_totalUnitCost) / 6
 pert_LabourCost = (o_totalLabourCost + (4 * m_totalLabourCost) + p_totalLabourCost) / 6
 pert_LabourWeeks = (o_totalLabourWeeks + (4 * m_totalLabourWeeks) + p_totalLabourWeeks) / 6
+# endregion
 
 
+# region FINAL OUTPUT
 # ================ OUTPUT ESTIMATES
 # pessimistic
 print("\n========================================")
@@ -208,3 +208,4 @@ print(f"- Unit Cost: {'£{:,.2f}'.format(pert_Unit)}")
 print(f"- Labour Cost: {'£{:,.2f}'.format(pert_LabourCost)}")
 print(f"- Labour Weeks: {pert_LabourWeeks} weeks")
 print("========================================\n")
+# endregion
